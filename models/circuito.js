@@ -9,7 +9,7 @@ const { Ubicacion } = require('./ubicacion')
 
 
 // Define the Circuito model
-const Circuito = connection.define('Circuito', {
+const Circuito = connection.define('circuito', {
   idarea: {
     type: DataTypes.INTEGER,
     allowNull: false

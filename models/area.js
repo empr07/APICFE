@@ -3,7 +3,7 @@ const { connection } = require("../config.db");
 
 
 // Define the Area model
-const Area = connection.define('Area', {
+const Area = connection.define('area', {
   nombre: {
     type: DataTypes.STRING,
     allowNull: false

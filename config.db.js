@@ -1,4 +1,6 @@
 const { Sequelize } = require('sequelize');
+require('dotenv').config();
+
 
 const { DB_HOST, DB_NAME, DB_PASSWORD, DB_USER } = require('./config.js')
 
