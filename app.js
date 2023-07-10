@@ -23,5 +23,5 @@ app.use('/api', areas, subestacion, numcirc, circuitos, ubicaciones, auth);
 
 
 app.listen(PORT, () => {
-  console.log('El Servidor escuchando en el puerto ' + PORT);
+  console.log('Servidor escuchando en el puerto ' + PORT);
 });
