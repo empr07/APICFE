@@ -1,8 +1,18 @@
 const { Area } = require('../models/area');
+const { Subestacion } = require('../models/subestacion');
+
+const relations = [{
+  model: Subestacion,
+  attributes: ['id', 'nombre'],
+  as: 'subestaciones'
+}]
 
 // Get all areas
 exports.getAllAreas = (req, res) => {
-  Area.findAll()
+  Area.findAll({
+    include: relations
+
+  })
     .then(areas => {
       res.json(areas);
     })
@@ -24,7 +34,9 @@ exports.createArea = (req, res) => {
 
 exports.getById = (request, response) => {
   const id = request.params.id;
-  Area.findByPk(id)
+  Area.findByPk(id, {
+    include: relations
+  })
     .then(entitie => {
       if (entitie) {
         response.json(entitie);

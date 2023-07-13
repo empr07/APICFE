@@ -16,7 +16,6 @@ const Subestacion = connection.define('subestacions', {
   }
 });
 
-Subestacion.belongsTo(Area, { as: 'area', foreignKey: 'idarea' })
 
 // Export the Subestacion model
 module.exports = { Subestacion };

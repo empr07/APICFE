@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const { connection } = require("../config.db");
+const { Subestacion } = require('./subestacion')
 
 
-// Define the Area model
 const Area = connection.define('area', {
   nombre: {
     type: DataTypes.STRING,
@@ -10,20 +10,7 @@ const Area = connection.define('area', {
   }
 });
 
-// Get all areas
-Area.getAll = () => {
-  return Area.findAll();
-};
-
-
-// Update an area
-Area.updateArea = (id, nombre) => {
-  return Area.update({ nombre }, { where: { id } });
-};
-
-// Delete an area
-Area.deleteArea = (id) => {
-  return Area.destroy({ where: { id } });
-};
+Area.hasMany(Subestacion, {as: 'subestaciones', foreignKey: 'idarea'})
+Subestacion.belongsTo(Area, {as: 'area', foreignKey: 'idarea',})
 
 module.exports = {Area};

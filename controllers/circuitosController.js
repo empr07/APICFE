@@ -36,7 +36,7 @@ const relationForById = relations.concat(relationUbicacion)
 // Get all circuitos
 exports.getAllCircuitos = (req, res) => {
   Circuito.findAll({
-    include: relations,
+    include: relationForById,
     attributes: ['id', 'idarea', 'idsubestacion', 'idnumcirc', 'nombre', 'createdAt', 'updatedAt']
 
   })
@@ -66,7 +66,6 @@ exports.getById = (request, response) => {
     })
 }
 
-// Create a circuito
 exports.createCircuito = (req, res) => {
   Circuito.create(req.body)
     .then(data => {
