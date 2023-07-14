@@ -1,7 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const { connection } = require("../config.db");
 const { Area } = require('./area')
-const { Subestacion } = require('./subestacion')
 
 
 
@@ -21,8 +20,6 @@ const Numcirc = connection.define('numcircs', {
   }
 });
 
-Numcirc.belongsTo(Area, { as: 'area', foreignKey: 'idarea' })
-Numcirc.belongsTo(Subestacion, { as: 'subestacion', foreignKey: 'idsubestacion' })
 
 
 

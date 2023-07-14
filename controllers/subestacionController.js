@@ -1,11 +1,19 @@
 const { Subestacion } = require('../models/subestacion');
-const { Area } = require('../models/area')
+const { Area } = require('../models/area');
+const { Numcirc } = require('../models/numcirc');
 
-const relations = [{
-  model: Area,
-  attributes: ['id', 'nombre'],
-  as: 'area'
-}]
+const relations = [
+  {
+    model: Area,
+    attributes: ['id', 'nombre'],
+    as: 'area'
+  },
+  {
+    model: Numcirc,
+    attributes: ['id', 'numero'],
+    as: 'numcircs'
+  }
+]
 
 // Get all subestaciones
 exports.getAllSubestaciones = (req, res) => {

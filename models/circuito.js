@@ -32,10 +32,7 @@ const Circuito = connection.define('circuito', {
   }
 });
 
-Circuito.belongsTo(Area, { as: 'area', foreignKey: 'idarea' })
-Circuito.belongsTo(Subestacion, { as: 'subestacion', foreignKey: 'idsubestacion' })
-Circuito.belongsTo(Numcirc, { as: 'numcirc', foreignKey: 'idnumcirc' })
-Circuito.hasMany(Ubicacion, { as: 'ubicaciones', foreignKey: 'idcircuito' })
+
 
 
 

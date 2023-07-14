@@ -1,6 +1,7 @@
 const { Numcirc } = require('../models/numcirc');
 const { Area } = require('../models/area')
-const { Subestacion } = require('../models/subestacion')
+const { Subestacion } = require('../models/subestacion');
+const { Circuito } = require('../models/circuito');
 
 const relations = [{
   model: Area,
@@ -12,6 +13,11 @@ const relations = [{
   attributes: ['id', 'nombre'],
   as: 'subestacion'
 },
+{
+  model: Circuito,
+  as: 'circuito',
+  attributes: ['id', 'nombre', 'diagrama']
+}
 ]
 // Get all numcircs
 exports.getAllNumcircs = (req, res) => {
