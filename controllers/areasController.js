@@ -9,8 +9,9 @@ const relations = [{
 
 // Get all areas
 exports.getAllAreas = (req, res) => {
+  const notrelations = req.query.notrelations || false
   Area.findAll({
-    include: relations
+    include: !notrelations ? relations : ''
 
   })
     .then(areas => {
@@ -34,8 +35,9 @@ exports.createArea = (req, res) => {
 
 exports.getById = (request, response) => {
   const id = request.params.id;
+  const notrelations = req.query.notrelations || false
   Area.findByPk(id, {
-    include: relations
+    include: !notrelations ? relations : ''
   })
     .then(entitie => {
       if (entitie) {

@@ -17,8 +17,9 @@ const relations = [
 
 // Get all subestaciones
 exports.getAllSubestaciones = (req, res) => {
+  const notrelations = req.query.notrelations || false
   Subestacion.findAll({
-    include: relations
+    include: !notrelations ? relations : ''
   })
     .then(subestaciones => {
       res.json(subestaciones);
@@ -30,8 +31,9 @@ exports.getAllSubestaciones = (req, res) => {
 
 exports.getById = (request, response) => {
   const id = request.params.id;
+  const notrelations = req.query.notrelations || false
   Subestacion.findByPk(id, {
-    include: relations
+    include: !notrelations ? relations : ''
   })
     .then(entitie => {
       if (entitie) {

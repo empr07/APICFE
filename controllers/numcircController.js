@@ -21,8 +21,9 @@ const relations = [{
 ]
 // Get all numcircs
 exports.getAllNumcircs = (req, res) => {
+  const notrelations = req.query.notrelations || false
   Numcirc.findAll({
-    include: relations
+    include: !notrelations ? relations : ''
   })
     .then(numcircs => {
       res.json(numcircs);
@@ -33,9 +34,10 @@ exports.getAllNumcircs = (req, res) => {
 };
 
 exports.getById = (request, response) => {
+  const notrelations = req.query.notrelations || false
   const id = request.params.id;
   Numcirc.findByPk(id, {
-    include: relations
+    include: !notrelations ? relations : ''
   })
     .then(entitie => {
       if (entitie) {
