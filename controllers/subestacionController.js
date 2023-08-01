@@ -31,7 +31,7 @@ exports.getAllSubestaciones = (req, res) => {
 
 exports.getById = (request, response) => {
   const id = request.params.id;
-  const notrelations = req.query.notrelations || false
+  const notrelations = request.query.notrelations || false
   Subestacion.findByPk(id, {
     include: !notrelations ? relations : ''
   })

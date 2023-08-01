@@ -34,7 +34,7 @@ exports.getAllNumcircs = (req, res) => {
 };
 
 exports.getById = (request, response) => {
-  const notrelations = req.query.notrelations || false
+  const notrelations = request.query.notrelations || false
   const id = request.params.id;
   Numcirc.findByPk(id, {
     include: !notrelations ? relations : ''
