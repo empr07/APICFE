@@ -2,6 +2,8 @@ const { Numcirc } = require('../models/numcirc');
 const { Area } = require('../models/area')
 const { Subestacion } = require('../models/subestacion');
 const { Circuito } = require('../models/circuito');
+const { Ubicacion } = require('../models/ubicacion');
+
 
 const relations = [{
   model: Area,
@@ -16,7 +18,11 @@ const relations = [{
 {
   model: Circuito,
   as: 'circuito',
-  attributes: ['id', 'nombre', 'diagrama']
+  attributes: ['id', 'nombre', 'diagrama'],
+  include: {
+    model: Ubicacion,
+    as: 'ubicaciones'
+  }
 }
 ]
 // Get all numcircs
